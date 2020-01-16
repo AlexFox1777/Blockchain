@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <!--    Display the current balance for that user -->
+    <h4>Current balance: {{amount}}, Name: Sasha</h4>
+    <div style="margin: 0 auto; width: 50%; text-align: center">
+        <h1 style="text-align: center">Lambda Wallet</h1>
+
+        <!--    Allow the user to enter, save, or change the `id` used for the program-->
+        {% block content %}
+        <h3 >Find your transactions</h3>
+        <form method="post" style="border: 2px solid burlywood; margin: 20px auto; padding: 10px; width: 50%; ">
+            <p>Type your name (id): </p>
+            <label for="id">Name: </label>
+            <input type="text" id="id" name="id"/>
+            <input type="submit" value="Find">
+        </form>
+        {% endblock %}
+
+        <!--  Display a list of all transactions for this user, including sender and recipient   -->
+        <h3>My transactions: </h3>
+        {% for block in chain %}
+            <p>Sender: {{block['sender']}}; Recipient: {{block['recipient']}}; Amount: {{block['amount']}}</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
