@@ -43,7 +43,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         node = sys.argv[1]
     else:
-        node = "http://localhost:4000"
+        node = "http://localhost:2000"
 
     # Load ID
     f = open("my_id.txt", "r")
@@ -72,7 +72,6 @@ if __name__ == '__main__':
         post_data = {"proof": new_proof, "id": id}
 
         r = requests.post(url=node + "/mine", json=post_data)
-        breakpoint()
         data = r.json()
         print(data)
 
